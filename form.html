@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Us - Professional Contact Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00bfa6;
+      --glass: rgba(255, 255, 255, 0.25);
+      --blur: blur(10px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: 
+        linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)),
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 20px;
+      background: rgba(10, 25, 47, 0.85);
+      color: white;
+      z-index: 10;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px 40px;
+      backdrop-filter: var(--blur);
+    }
+
+    .container {
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: var(--blur);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 1000px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    .text-side h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .text-side p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .text-side .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .text-side .cta:hover {
+      background: #00796b;
+    }
+
+    .form-side form {
+      display: flex;
+      flex-direction: column;
+      animation: slideInRight 1s ease forwards;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      color: #666;
+      background: rgba(255,255,255,0.85);
+      padding: 0 4px;
+      transition: 0.2s ease;
+      pointer-events: none;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:focus + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 13px;
+      color: var(--primary);
+    }
+
+    .form-side button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form-side button:hover {
+      background: #00796b;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-top: -14px;
+      margin-bottom: 10px;
+    }
+
+    .success-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      animation: zoomIn 0.6s ease forwards;
+      color: white;
+      text-align: center;
+    }
+
+    .success-box img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .success-box h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .success-box p {
+      font-size: 16px;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Join Our Community
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="container" id="mainContainer">
+      <div class="text-side">
+        <h2>Grow with Us</h2>
+        <p>Become part of a thriving network. Get updates, resources, and exclusive invites straight to your inbox.</p>
+        <a href="#contactForm" class="cta">Get Started</a>
+      </div>
+
+      <div class="form-side">
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <input type="text" id="name" placeholder=" " required />
+            <label for="name">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder=" " required />
+            <label for="email">Email Address</label>
+            <div class="error" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder=" " rows="4" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit">Join Now</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="success-box" id="successBox">
+      <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Success">
+      <h2>Successfully Joined!</h2>
+      <p>Thank you! We'll get back to you shortly.</p>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const container = document.getElementById('mainContainer');
+    const successBox = document.getElementById('successBox');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+
+      if (!validateEmail(email)) {
+        emailError.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      emailError.textContent = '';
+      container.style.display = 'none';
+      successBox.style.display = 'flex';
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email.toLowerCase());
+    }
+  </script>
+</body>
+</html>
